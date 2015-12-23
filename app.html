@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Learn angular by example [app]</title>
+		<!-- Bootstrap CSS -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="angular.min.js"></script>
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body ng-app="myApp" ng-controller="myController">
+		<div class="container">
+			<div class="row">
+				<h1>Learn angular by example </h1>
+				<h2>Example App</h2>
+				<h3>My Note</h3>
+				<div id="note" style="background: #ccc;height: 500px" class="col-ms-4" >
+					<form action="#" method="get" accept-charset="utf-8">
+						<textarea name="note-data"ng-model="textData" style="    background: #fff;
+						text-align: left;
+						padding: 0;" cols="40" rows="10"></textarea>
+					</form>
+					<p>Length: <span  ng-bind="length()"></span></p>
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.controller('myController',function($scope){
+			$scope.textData = '';
+				$scope.length =  function(){
+					return $scope.textData.length;
+				}
+		});
+		</script>
+	</body>
+</html>
