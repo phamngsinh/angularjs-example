@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Learn angular by example[controller]</title>
+		<!-- Bootstrap CSS -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="angular.min.js"></script>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body ng-app="myApp" >
+		<div class="container" ng-controller="myController">
+			<div class="row">
+				<h1 class="text-center">Learn angular by example</h1>
+				First Name : <input type="text" name="" ng-model="firstname" value="" placeholder="" class="form-control"><br/>
+				Last Name : <input type="text" ng-model="lastname" name="" value="" placeholder="" class="form-control"> 
+				<br/>
+				<p>Full Name : {{ firstname + "" + lastname}}</p>
+
+				<p>Full Name with function : {{fullname()}}</p>
+			</div>
+		</div>
+		<div class="container" ng-controller="otherController">
+			<div class="row">
+				Other Name : {{otherName}}
+			</div>
+		</div>
+		
+		<script>
+			var app = angular.module('myApp', []);
+app.controller('myController',function($scope){
+	$scope.firstname = "Sinh";
+	$scope.lastname = "Pham";
+	$scope.fullname = function () {
+		return $scope.firstname + " - " + $scope.lastname; 
+	}
+});
+
+		</script>
+				<script src="otherController.js"></script>
+	</body>
+</html>
